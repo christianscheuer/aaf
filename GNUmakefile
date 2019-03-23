@@ -40,18 +40,7 @@ include $(AAFBASE)/build/common.mk
 
 .PHONY : default
 default : 
-	make AAFTARGET=Release-static AAFPLATFORM=x86_64Darwin full
-
-.PHONY : manual-install
-manual-install : 
-	@echo Copying results
-	cp -R -f ref-impl/include /usr/local/include/aafsdk
-	mkdir -p /usr/local/lib/aafsdk
-	cp -f AAFx86_64DarwinSDK/g++/com-api/libcom-api.dylib /usr/local/lib/aafsdk/libcom-api.dylib
-
-.PHONY : full
-full : ref-impl manual-install
-
+	make AAFTARGET=Release AAFPLATFORM=x86_64Darwin AAFSDK=/d/SDKs/aafsdk install
 
 #
 #  Default target to build SDK. It assumes that dodo generated
