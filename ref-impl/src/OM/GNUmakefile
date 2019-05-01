@@ -43,6 +43,12 @@ MODULE_PLATFORM_CFLAGS = -LANG:std -woff 1107
 MODULE_PLATFORM_LDFLAGS = $(MODULE_PLATFORM_CFLAGS)
 endif
 
+#CMS/SoundFlow
+ifeq ($(shell uname), Linux)
+MODULE_PLATFORM_CFLAGS = -Wno-error
+MODULE_PLATFORM_LDFLAGS = $(MODULE_PLATFORM_CFLAGS)
+endif
+
 # Common definitions
 include $(AAFBASE)/build/common.mk
 
